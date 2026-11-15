@@ -1,0 +1,304 @@
+@charset "utf-8";
+
+:root {
+  font-family: "Segoe UI", "Noto Sans JP", sans-serif;
+  color: #173d30;
+  background: #f1f7f2;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 95% 5%, #ccebd8 0%, transparent 38%),
+    radial-gradient(ellipse at 5% 95%, #d9eddd 0%, transparent 40%), #f1f7f2;
+}
+
+#wrapper {
+  max-width: 55rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+#app-area {
+  max-width: 45rem;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 1.75rem;
+  box-shadow:
+    0 24px 70px rgba(30, 85, 55, 0.09),
+    0 4px 16px rgba(30, 85, 55, 0.04);
+}
+
+h1 {
+  margin: 0 0 2rem;
+  font-size: 1.75rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  color: #124732;
+}
+
+/* 支出合計カード */
+#sum-area {
+  padding: 1.75rem 2rem;
+  background: linear-gradient(120deg, #eaf5dc 0%, #d8efdf 55%, #b8e6d6 100%);
+  border: 1px solid #d8e9d8;
+  border-radius: 1.5rem;
+}
+
+h2 {
+  margin: 0 0 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: #2c7152;
+}
+
+#sum {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+  color: #104a35;
+}
+
+#sum .yen-mark {
+  margin-right: 0.15rem;
+  font-size: 0.8em;
+}
+
+/* 入力フォーム */
+#expense-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  margin-top: 2.25rem;
+}
+
+#item-input-area {
+  flex: 2 1 0;
+  min-width: 0;
+}
+
+#amount-input-area {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+#button-area {
+  flex: 0 0 auto;
+}
+
+#expense-form label {
+  display: block;
+  margin: 0 0 0.5rem 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: #285a44;
+}
+
+#expense-form input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 3.2rem;
+  padding: 0.7rem 1rem;
+  font: inherit;
+  font-size: 1rem;
+  color: #173d30;
+  background: #ffffff;
+  border: 1px solid #cbded4;
+  border-radius: 0.85rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#expense-form input::placeholder {
+  color: #99aaa2;
+}
+
+#expense-form input:focus {
+  border-color: #39966a;
+  box-shadow: 0 0 0 4px rgba(57, 150, 106, 0.12);
+}
+
+#add-button {
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  padding: 0;
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1;
+  color: white;
+  background: linear-gradient(145deg, #46a76b, #207747);
+  border: 1px solid #26844f;
+  border-radius: 0.85rem;
+  box-shadow: 0 5px 12px rgba(35, 119, 71, 0.18);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+#add-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(35, 119, 71, 0.24);
+}
+
+#add-button:active {
+  transform: translateY(0);
+}
+
+.note {
+  margin-left: 1rem;
+  margin-bottom: 2.25rem;
+  font-size: 0.7rem;
+  color: #555555;
+}
+
+.description {
+  margin-left: 0.5rem;
+}
+
+/* 支出一覧 */
+#item-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#item-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 1.05rem 1.15rem;
+  background: #fbfdfb;
+  border: 1px solid #e0eae4;
+  border-radius: 1rem;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+#item-list li:hover {
+  background: #f3faf5;
+  border-color: #c6e0cf;
+  transform: translateY(-1px);
+}
+
+.item-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.item-amount {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 1.1rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.item-amount .yen-mark {
+  margin-right: 0.15rem;
+  font-size: 0.85em;
+}
+
+.trashbox-button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0 0 0 0.35rem;
+  padding: 0;
+  background: #edf3ef;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.trashbox-button:hover {
+  background: #f7e5e3;
+  transform: scale(1.05);
+}
+
+.trashbox-img {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* キーボード操作時のフォーカス */
+button:focus-visible {
+  outline: 3px solid #56a77b;
+  outline-offset: 3px;
+}
+
+/* スマートフォン */
+@media (max-width: 540px) {
+  #wrapper {
+    padding: 1rem 0.65rem;
+  }
+
+  #app-area {
+    padding: 1.4rem;
+    border-radius: 1.25rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #sum-area {
+    padding: 1.4rem;
+  }
+
+  #expense-form {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  #item-input-area {
+    flex: 1 1 100%;
+  }
+
+  #amount-input-area {
+    flex: 1 1 0;
+  }
+
+  #item-list li {
+    padding: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
